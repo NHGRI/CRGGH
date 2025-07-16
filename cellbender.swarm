@@ -1,0 +1,388 @@
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-019_71783/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-019_71783/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-019_71783/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1803/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1803/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1803/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1837/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1837/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-020_73876_1837/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-021_75162/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-021_75162/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-021_75162/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-022_75751/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-022_75751/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-022_75751/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-023_75798/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-023_75798/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-023_75798/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-024_75799/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-024_75799/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-024_75799/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-026_77407/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-026_77407/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-026_77407/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-027_78239/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-027_78239/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-027_78239/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-028_78241/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-028_78241/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-028_78241/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-029_78242/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-029_78242/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-029_78242/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-032_79863/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-032_79863/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-032_79863/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-034_81423/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-034_81423/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-034_81423/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-035_81832/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-035_81832/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-035_81832/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-036_81833/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-036_81833/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-036_81833/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-037_82543/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-037_82543/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-037_82543/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-038_84764/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-038_84764/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-038_84764/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-039_86672/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-039_86672/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-039_86672/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-040_86673/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-040_86673/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-040_86673/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-042_86674/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-042_86674/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-042_86674/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-043_86675/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-043_86675/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-043_86675/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-044_86676/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-044_86676/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-044_86676/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-045_86677/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-045_86677/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-045_86677/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-047_97169/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-047_97169/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-047_97169/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-049_97170/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-049_97170/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-049_97170/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-050_97171/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-050_97171/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-050_97171/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-051_97173/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-051_97173/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-051_97173/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-052_98611/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-052_98611/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-052_98611/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-053_98612/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-053_98612/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-053_98612/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-054_98613/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-054_98613/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-054_98613/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-055_98614/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-055_98614/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-055_98614/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-056_98615/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-056_98615/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-056_98615/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-057_98616/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-057_98616/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-057_98616/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-058_98617/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-058_98617/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-058_98617/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-059_98618/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-059_98618/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-059_98618/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-061_99868/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-061_99868/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-061_99868/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-063_99870/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-063_99870/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-063_99870/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-064_99871/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-064_99871/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-064_99871/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-065_99872/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-065_99872/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-065_99872/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-070_99875/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-070_99875/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-070_99875/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-071_103407/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-071_103407/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-071_103407/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-072_103408/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-072_103408/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-072_103408/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-074_103409/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-074_103409/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-074_103409/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-075_103410/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-075_103410/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-075_103410/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-077_103411/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-077_103411/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-077_103411/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-079_103412/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-079_103412/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-079_103412/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-080_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-081_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-082_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-083_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-084_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-085_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2276/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2276/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2276/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-087_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2354/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2354/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-088_FGC2354/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-090_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-091_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-091_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-091_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-092_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2332/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2332/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2332/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-093_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-099_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-100_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-101_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-103_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-104_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-105_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-106_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-106_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-106_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-107_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-108_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-108_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-108_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2390/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2390/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2390/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+
+cd /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2430/outs; \
+cellbender remove-background --cpu-threads 4 --input /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2430/outs/raw_feature_bc_matrix.h5 --output /data/CRGGH/heustonef/hpapdata/cellranger_scRNA/HPAP-109_FGC2430/outs/cb_feature_bc_matrix.h5; \
+ptrepack --complevel 5 cb_feature_bc_matrix_filtered.h5:/matrix cb-seurat_feature_bc_matrix_filtered.h5:/matrix
+

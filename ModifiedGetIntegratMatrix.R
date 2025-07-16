@@ -1,0 +1,443 @@
+
+mod_addGeneIntegrationMatrix <- function (ArchRProj = NULL, useMatrix = "GeneScoreMatrix", matrixName = "GeneIntegrationMatrix",
+    reducedDims = "IterativeLSI", seRNA = NULL, groupATAC = NULL,
+    groupRNA = NULL, groupList = NULL, sampleCellsATAC = 10000,
+    sampleCellsRNA = 10000, embeddingATAC = NULL, embeddingRNA = NULL,
+    dimsToUse = 1:30, scaleDims = NULL, corCutOff = 0.75, plotUMAP = TRUE,
+    UMAPParams = list(n_neighbors = 40, min_dist = 0.4, metric = "cosine",
+        verbose = FALSE), nGenes = 2000, useImputation = TRUE,
+    reduction = "cca", addToArrow = TRUE, scaleTo = 10000, genesUse = NULL,
+    nameCell = "predictedCell", nameGroup = "predictedGroup",
+    nameScore = "predictedScore", transferParams = list(), threads = getArchRThreads(),
+    verbose = TRUE, force = FALSE, logFile = createLogFile("addGeneIntegrationMatrix"),
+    ...)
+{
+    ArchR:::.requirePackage("Seurat", source = "cran")
+    if (is.null(groupList)) {
+        groupList <- SimpleList()
+        groupList[[1]] <- SimpleList(ATAC = ArchRProj$cellNames,
+            RNA = colnames(seRNA))
+    }
+    if (useMatrix %ni% getAvailableMatrices(ArchRProj)) {
+        stop("Matrix name provided to useMatrix does not exist in ArchRProject!")
+    }
+    if (!is.null(groupATAC)) {
+        dfATAC <- getCellColData(ArchRProj = ArchRProj, select = groupATAC,
+            drop = FALSE)
+    }
+    nCell <- rep(0, length(ArchRProj$cellNames))
+    names(nCell) <- ArchRProj$cellNames
+    groupList <- lapply(seq_along(groupList), function(x) {
+        ATAC <- groupList[[x]]$ATAC
+        if (!is.null(groupATAC)) {
+            if (any(ATAC %in% dfATAC[, 1])) {
+                idx <- which(ATAC %in% dfATAC[, 1])
+                ATAC2 <- rownames(dfATAC)[which(dfATAC[, 1] %in%
+                  ATAC[idx])]
+                if (length(idx) == length(ATAC)) {
+                  ATAC <- ATAC2
+                }
+                else {
+                  ATAC <- c(ATAC[-idx], ATAC2)
+                }
+            }
+        }
+        SimpleList(ATAC = ATAC, RNA = groupList[[x]]$RNA)
+    }) %>% SimpleList
+    for (i in seq_along(groupList)) {
+        nCell[groupList[[i]]$ATAC] <- nCell[groupList[[i]]$ATAC] +
+            1
+    }
+    if (!all(nCell == 1)) {
+        stop("Missing ", length(which(nCell == 0)), " cells. Found ",
+            length(which(nCell > 1)), " overlapping cells from ArchRProj in groupList! Cannot have overlapping/missing cells in ATAC input, check 'groupList' argument!")
+    }
+    if (inherits(seRNA, "SummarizedExperiment")) {
+        seuratRNA <- CreateSeuratObject(counts = assay(seRNA))
+        if (groupRNA %ni% colnames(colData(seRNA))) {
+            stop("groupRNA not in colData of seRNA")
+        }
+        seuratRNA$Group <- paste0(colData(seRNA)[, groupRNA,
+            drop = TRUE])
+        # rm(seRNA)
+    } else {
+        if (groupRNA %ni% colnames(seRNA@meta.data)) {
+         }
+        seuratRNA <- seRNA
+        seuratRNA$Group <- paste0(seRNA@meta.data[, groupRNA])
+        # rm(seRNA)
+    }
+    if ("RNA" %in% names(seuratRNA@assays)) {
+        DefaultAssay(seuratRNA) <- "RNA"
+    } else {
+        stop("'RNA' is not present in Seurat Object's Assays! Please make sure that this assay is present!")
+    }
+    gc()
+    if (!is.null(groupRNA)) {
+        dfRNA <- DataFrame(row.names = colnames(seuratRNA), Group = seuratRNA$Group)
+    }
+    groupList <- lapply(seq_along(groupList), function(x) {
+        RNA <- groupList[[x]]$RNA
+        if (!is.null(groupRNA)) {
+            if (any(RNA %in% dfRNA[, 1])) {
+                idx <- which(RNA %in% dfRNA[, 1])
+                RNA2 <- rownames(dfRNA)[which(dfRNA[, 1] %in%
+                  RNA[idx])]
+                if (length(idx) == length(RNA)) {
+                  RNA <- RNA2
+                }
+                else {
+                  RNA <- c(RNA[-idx], RNA2)
+                }
+            }
+        }
+        SimpleList(ATAC = groupList[[x]]$ATAC, RNA = RNA)
+    }) %>% SimpleList
+    cellRNA <- unlist(lapply(groupList, function(x) x$RNA))
+    if (!all(cellRNA %in% colnames(seuratRNA))) {
+        stop("Found cells for RNA not in colnames(seRNA)! Please retry your input!")
+    }
+    seuratRNA <- seuratRNA[, unique(cellRNA)]
+    seuratRNA <- NormalizeData(object = seuratRNA, verbose = FALSE)
+    geneDF <- ArchR:::.getFeatureDF(getArrowFiles(ArchRProj), useMatrix)
+    sumOverlap <- sum(unique(geneDF$name) %in% unique(rownames(seuratRNA)))
+    if (sumOverlap < 5) {
+        stop("Error not enough overlaps (", sumOverlap, ") between gene names from gene scores (ArchR) and rna matrix (seRNA)!")
+    }
+
+    blockList <- SimpleList()
+    for (i in seq_along(groupList)) {
+        gLi <- groupList[[i]]
+        if (length(gLi$ATAC) > sampleCellsATAC) {
+            if (!is.null(embeddingATAC)) {
+                probATAC <- ArchR:::.getDensity(embeddingATAC[gLi$ATAC,
+                  1], embeddingATAC[gLi$ATAC, 2])$density
+                probATAC <- probATAC/max(probATAC)
+                cellsATAC <- gLi$ATAC[order(probATAC, decreasing = TRUE)]
+            } else {
+                cellsATAC <- sample(gLi$ATAC, length(gLi$ATAC))
+            }
+            cutoffs <- lapply(seq_len(1000), function(x) length(gLi$ATAC)/x) %>%
+                unlist
+            blockSize <- ceiling(min(cutoffs[order(abs(cutoffs -
+                sampleCellsATAC))[1]] + 1, length(gLi$ATAC)))
+            nBlocks <- ceiling(length(gLi$ATAC)/blockSize)
+            blocks <- lapply(seq_len(nBlocks), function(x) {
+                cellsATAC[seq(x, length(cellsATAC), nBlocks)]
+            }) %>% SimpleList
+        } else {
+            blocks <- list(gLi$ATAC)
+        }
+        if (!is.null(embeddingRNA)) {
+            probRNA <- ArchR:::.getDensity(embeddingRNA[gLi$RNA, 1],
+                embeddingRNA[gLi$RNA, 2])$density
+            probRNA <- probRNA/max(probRNA)
+        } else {
+            probRNA <- rep(1, length(gLi$RNA))
+        }
+        blockListi <- lapply(seq_along(blocks), function(x) {
+            SimpleList(ATAC = blocks[[x]], RNA = sample(x = gLi$RNA,
+                size = min(sampleCellsRNA, length(gLi$RNA)),
+                prob = probRNA))
+        }) %>% SimpleList
+        blockList <- c(blockList, blockListi)
+    }
+    rm(groupList)
+    subProj <- ArchRProj
+    subProj@imputeWeights <- SimpleList()
+    geneDF <- ArchR:::.getFeatureDF(getArrowFiles(subProj), useMatrix)
+    geneDF <- geneDF[geneDF$name %in% rownames(seuratRNA), ,
+        drop = FALSE]
+    splitGeneDF <- S4Vectors::split(geneDF, geneDF$seqnames)
+    featureDF <- lapply(splitGeneDF, function(x) {
+        x$idx <- seq_len(nrow(x))
+        return(x)
+    }) %>% Reduce("rbind", .)
+    dfParams <- data.frame(reduction = reduction)
+    allChr <- unique(featureDF$seqnames)
+
+     tmpFile <-ArchR:::.tempfile()
+     o <- suppressWarnings(file.remove(paste0(tmpFile, "-IntegrationBlock-",
+        seq_along(blockList), ".h5")))
+    if (threads > 1) {
+        h5disableFileLocking()
+    }
+    rD <- getReducedDims(ArchRProj = ArchRProj, reducedDims = reducedDims,
+        corCutOff = corCutOff, dimsToUse = dimsToUse)
+    outDir1 <- getOutputDirectory(ArchRProj)
+    outDir2 <- file.path(outDir1, "RNAIntegration")
+    outDir3 <- file.path(outDir2, matrixName)
+    dir.create(outDir1, showWarnings = FALSE)
+    dir.create(outDir2, showWarnings = FALSE)
+    dir.create(outDir3, showWarnings = FALSE)
+    prevFiles <- list.files(outDir3, full.names = TRUE)
+    prevFiles <- ArchR:::.suppressAll(file.remove(prevFiles))
+    tstart <- Sys.time()
+    threads2 <- max(ceiling(threads * 0.75), 1)
+     dfAll <- ArchR:::.safelapply(seq_along(blockList), function(i) {
+        prefix <- sprintf("Block (%s of %s) :", i, length(blockList))
+        blocki <- blockList[[i]]
+        subProj@cellColData <- subProj@cellColData[blocki$ATAC,
+            ]
+        subProj@sampleColData <- subProj@sampleColData[unique(subProj$Sample),
+            , drop = FALSE]
+        subRNA <- seuratRNA[, blocki$RNA]
+        subRNA <- subRNA[rownames(subRNA) %in% geneDF$name, ]
+        subRNA <- FindVariableFeatures(object = subRNA, nfeatures = nGenes,
+            verbose = FALSE)
+        subRNA <- ScaleData(object = subRNA, verbose = FALSE)
+        if (is.null(genesUse)) {
+            genesUse <- VariableFeatures(object = subRNA)
+        }
+        mat <- ArchR:::.getPartialMatrix(getArrowFiles(subProj), featureDF = geneDF[geneDF$name %in%
+            genesUse, ], threads = 1, cellNames = subProj$cellNames,
+            useMatrix = useMatrix, verbose = FALSE)
+        rownames(mat) <- geneDF[geneDF$name %in% genesUse, "name"]
+        if (useImputation) {
+            imputeParams <- list()
+            imputeParams$ArchRProj <- subProj
+            imputeParams$randomSuffix <- TRUE
+            imputeParams$reducedDims <- reducedDims
+            imputeParams$dimsToUse <- dimsToUse
+            imputeParams$scaleDims <- scaleDims
+            imputeParams$corCutOff <- corCutOff
+            imputeParams$threads <- 1
+            imputeParams$logFile <- logFile
+            subProj <- suppressMessages(do.call(addImputeWeights,
+                imputeParams))
+            mat <- suppressMessages(imputeMatrix(mat = mat, imputeWeights = getImputeWeights(subProj),
+                verbose = FALSE, logFile = logFile))
+            o <- suppressWarnings(file.remove(unlist(getImputeWeights(subProj)[[1]])))
+         }
+        mat <- log(mat + 1)
+        rownames(mat) <- as.character(rownames(mat))
+        seuratATAC <- Seurat::CreateSeuratObject(counts = mat[head(seq_len(nrow(mat)),
+            5), , drop = FALSE])
+        seuratATAC[["GeneScore"]] <- Seurat::CreateAssayObject(counts = mat)
+        rm(mat)
+        DefaultAssay(seuratATAC) <- "GeneScore"
+        seuratATAC <- Seurat::ScaleData(seuratATAC, verbose = FALSE)
+        #  transferAnchors <- ArchR:::.retryCatch({
+        #     gc()
+        #  	#Fails here
+        #     Seurat::FindTransferAnchors(reference = subRNA, query = seuratATAC,
+        #         reduction = reduction, features = genesUse, verbose = FALSE,
+        #         ...)
+        # }, maxAttempts = 2, logFile = logFile)
+        transferAnchors <- Seurat::FindTransferAnchors(reference = subRNA, query = seuratATAC,
+        																							 reduction = reduction, features = genesUse, verbose = TRUE)
+        rDSub <- rD[colnames(seuratATAC), , drop = FALSE]
+        transferParams$anchorset <- transferAnchors
+        transferParams$weight.reduction <- CreateDimReducObject(embeddings = rDSub,
+            key = "LSI_", assay = DefaultAssay(seuratATAC))
+        transferParams$verbose <- FALSE
+        transferParams$dims <- seq_len(ncol(rDSub))
+          transferParams$refdata <- subRNA$Group
+        rnaLabels <- do.call(Seurat::TransferData, transferParams)
+        transferParams$refdata <- colnames(subRNA)
+        rnaLabels2 <- do.call(Seurat::TransferData, transferParams)[,
+            1]
+        if (addToArrow) {
+            transferParams$refdata <- GetAssayData(subRNA, assay = "RNA",
+                slot = "data")
+            gc()
+            matchedRNA <- do.call(Seurat::TransferData, transferParams)
+            matchedRNA <- matchedRNA@data
+        }
+        matchDF <- DataFrame(cellNames = colnames(seuratATAC),
+            predictionScore = rnaLabels$prediction.score.max,
+            predictedGroup = rnaLabels$predicted.id, predictedCell = rnaLabels2)
+        rownames(matchDF) <- matchDF$cellNames
+        jointCCA <- DataFrame(transferAnchors@object.list[[1]]@reductions$cca@cell.embeddings)
+        jointCCA$Assay <- ifelse(endsWith(rownames(jointCCA),
+            "_reference"), "RNA", "ATAC")
+        jointCCA$Group <- NA
+        jointCCA$Score <- NA
+        jointCCA[paste0(colnames(subRNA), "_reference"), "Group"] <- subRNA$Group
+        jointCCA[paste0(matchDF$cellNames, "_query"), "Group"] <- matchDF$predictedGroup
+        jointCCA[paste0(matchDF$cellNames, "_query"), "Score"] <- matchDF$predictionScore
+        ArchR:::.safeSaveRDS(object = jointCCA, file = file.path(outDir3,
+            paste0("Save-Block", i, "-JointCCA.rds")))
+        rm(transferParams, transferAnchors)
+        gc()
+        if (addToArrow) {
+             tmpFilei <- paste0(tmpFile, "-IntegrationBlock-",
+                i, ".h5")
+            o <- h5createFile(tmpFilei)
+            sampleNames <- getCellColData(subProj, "Sample")[matchDF$cellNames,
+                ]
+            uniqueSamples <- unique(sampleNames)
+            matchedRNA <- ArchR:::.safeSubset(mat = matchedRNA, subsetRows = paste0(featureDF$name),
+                subsetCols = matchDF$cellNames)
+            for (z in seq_along(uniqueSamples)) {
+                mat <- matchedRNA[, which(sampleNames == uniqueSamples[z]),
+                  drop = FALSE]
+                Group <- uniqueSamples[z]
+                o <- tryCatch({
+                  h5delete(tmpFilei, paste0(Group))
+                }, error = function(x) {
+                })
+                o <- h5createGroup(tmpFilei, paste0(Group))
+                j <- Rle(findInterval(seq(mat@x) - 1, mat@p[-1]) +
+                  1)
+                lengthRle <- length(j@lengths)
+                lengthI <- length(mat@i)
+                o <- ArchR:::.suppressAll(h5createDataset(tmpFilei, paste0(Group,
+                  "/i"), storage.mode = "integer", dims = c(lengthI,
+                  1), level = 0))
+                o <- ArchR:::.suppressAll(h5createDataset(tmpFilei, paste0(Group,
+                  "/jLengths"), storage.mode = "integer", dims = c(lengthRle,
+                  1), level = 0))
+                o <- ArchR:::.suppressAll(h5createDataset(tmpFilei, paste0(Group,
+                  "/jValues"), storage.mode = "integer", dims = c(lengthRle,
+                  1), level = 0))
+                o <- ArchR:::.suppressAll(h5createDataset(tmpFilei, paste0(Group,
+                  "/x"), storage.mode = "double", dims = c(lengthI,
+                  1), level = 0))
+                o <- ArchR:::.suppressAll(h5write(obj = mat@i + 1, file = tmpFilei,
+                  name = paste0(Group, "/i")))
+                o <- ArchR:::.suppressAll(h5write(obj = j@lengths, file = tmpFilei,
+                  name = paste0(Group, "/jLengths")))
+                o <- ArchR:::.suppressAll(h5write(obj = j@values, file = tmpFilei,
+                  name = paste0(Group, "/jValues")))
+                o <- ArchR:::.suppressAll(h5write(obj = mat@x, file = tmpFilei,
+                  name = paste0(Group, "/x")))
+                o <- ArchR:::.suppressAll(h5write(obj = colnames(mat),
+                  file = tmpFilei, name = paste0(Group, "/cellNames")))
+            }
+            rm(matchedRNA, mat, j)
+        }
+        gc()
+        matchDF$Block <- Rle(i)
+        matchDF
+    }, threads = threads2) %>% Reduce("rbind", .)
+    if (plotUMAP) {
+        for (i in seq_along(blockList)) {
+            o <- tryCatch({
+                prefix <- sprintf("Block (%s of %s) :", i, length(blockList))
+                  jointCCA <- readRDS(file.path(outDir3, paste0("Save-Block",
+                  i, "-JointCCA.rds")))
+                set.seed(1)
+                UMAPParams <- ArchR:::.mergeParams(UMAPParams, list(n_neighbors = 40,
+                  min_dist = 0.4, metric = "cosine", verbose = FALSE))
+                UMAPParams$X <- as.data.frame(jointCCA[, grep("CC_",
+                  colnames(jointCCA))])
+                UMAPParams$ret_nn <- FALSE
+                UMAPParams$ret_model <- FALSE
+                UMAPParams$n_threads <- 1
+                uwotUmap <- tryCatch({
+                  do.call(uwot::umap, UMAPParams)
+                }, error = function(e) {
+                  errorList <- UMAPParams
+                   })
+                jointCCA$UMAP1 <- uwotUmap[, 1]
+                jointCCA$UMAP2 <- uwotUmap[, 2]
+                ArchR:::.safeSaveRDS(object = jointCCA, file = file.path(outDir3,
+                  paste0("Save-Block", i, "-JointCCA.rds")))
+                p1 <- ggPoint(x = uwotUmap[, 1], y = uwotUmap[,
+                  2], color = jointCCA$Assay, randomize = TRUE,
+                  size = 0.2, title = paste0(prefix, " colored by Assay"),
+                  xlabel = "UMAP Dimension 1", ylabel = "UMAP Dimension 2",
+                  rastr = TRUE) + theme(axis.text.x = element_blank(),
+                  axis.ticks.x = element_blank(), axis.text.y = element_blank(),
+                  axis.ticks.y = element_blank())
+                p2 <- ggPoint(x = uwotUmap[, 1], y = uwotUmap[,
+                  2], color = jointCCA$Group, randomize = TRUE,
+                  size = 0.2, title = paste0(prefix, " colored by scRNA Group"),
+                  xlabel = "UMAP Dimension 1", ylabel = "UMAP Dimension 2",
+                  rastr = TRUE) + theme(axis.text.x = element_blank(),
+                  axis.ticks.x = element_blank(), axis.text.y = element_blank(),
+                  axis.ticks.y = element_blank())
+                pdf(file.path(outDir3, paste0("Save-Block", i,
+                  "-JointCCA-UMAP.pdf")), width = 12, height = 6,
+                  useDingbats = FALSE)
+                ggAlignPlots(p1, p2, type = "h")
+                dev.off()
+            }, error = function(e) {
+            })
+        }
+    }
+    if (addToArrow) {
+        matrixName <- ArchR:::.isProtectedArray(matrixName)
+        integrationFiles <- paste0(tmpFile, "-IntegrationBlock-",
+            seq_along(blockList), ".h5")
+        if (!all(file.exists(integrationFiles))) {
+             stop("Something went wrong with integration as not all temporary files containing integrated RNA exist!")
+        }
+        h5list <- ArchR:::.safelapply(seq_along(integrationFiles), function(x) {
+            h5ls(integrationFiles[x])
+        }, threads = threads)
+        ArrowFiles <- getArrowFiles(ArchRProj)
+        allSamples <- names(ArrowFiles)
+        o <- ArchR:::.safelapply(seq_along(allSamples), function(y) {
+            sample <- allSamples[y]
+            prefix <- sprintf("%s (%s of %s)", sample, y, length(ArrowFiles))
+             sampleIF <- lapply(seq_along(h5list), function(x) {
+                if (any(h5list[[x]]$group == paste0("/", sample))) {
+                  integrationFiles[x]
+                }
+                else {
+                  NULL
+                }
+            }) %>% unlist
+            sampleMat <- lapply(seq_along(sampleIF), function(x) {
+                cellNames <- ArchR:::.h5read(sampleIF[x], paste0(sample,
+                  "/cellNames"))
+                mat <- sparseMatrix(i = ArchR:::.h5read(sampleIF[x],
+                  paste0(sample, "/i"))[, 1], j = as.vector(Rle(.h5read(sampleIF[x],
+                  paste0(sample, "/jValues"))[, 1], ArchR:::.h5read(sampleIF[x],
+                  paste0(sample, "/jLengths"))[, 1])), x = ArchR:::.h5read(sampleIF[x],
+                  paste0(sample, "/x"))[, 1], dims = c(nrow(featureDF),
+                  length(cellNames)))
+                colnames(mat) <- cellNames
+                mat
+            }) %>% Reduce("cbind", .)
+            sampleMat@x <- exp(sampleMat@x) - 1
+            sampleMat <- ArchR:::.normalizeCols(sampleMat, scaleTo = scaleTo)
+            sampleMat <- drop0(sampleMat)
+            rownames(sampleMat) <- paste0(featureDF$name)
+            sampleMat <- sampleMat[, ArchRProj$cellNames[BiocGenerics::which(ArchRProj$Sample ==
+                sample)], drop = FALSE]
+            o <- ArchR:::.createArrowGroup(ArrowFile = ArrowFiles[sample],
+                group = matrixName, force = force)
+            o <- ArchR:::.initializeMat(ArrowFile = ArrowFiles[sample],
+                Group = matrixName, Class = "double", Units = "NormCounts",
+                cellNames = colnames(sampleMat), params = dfParams,
+                featureDF = featureDF, force = force)
+            o <- h5write(obj = dfAll[colnames(sampleMat), "predictionScore"],
+                file = ArrowFiles[sample], name = paste0(matrixName,
+                  "/Info/predictionScore"))
+            o <- h5write(obj = dfAll[colnames(sampleMat), "predictedGroup"],
+                file = ArrowFiles[sample], name = paste0(matrixName,
+                  "/Info/predictedGroup"))
+            o <- h5write(obj = dfAll[colnames(sampleMat), "predictedCell"],
+                file = ArrowFiles[sample], name = paste0(matrixName,
+                  "/Info/predictedCell"))
+              for (z in seq_along(allChr)) {
+                chrz <- allChr[z]
+                     idz <- BiocGenerics::which(featureDF$seqnames %bcin%
+                  chrz)
+                matz <- sampleMat[idz, , drop = FALSE]
+                stopifnot(identical(paste0(featureDF$name[idz]),
+                  paste0(rownames(matz))))
+                o <- ArchR:::.addMatToArrow(mat = matz, ArrowFile = ArrowFiles[sample],
+                  Group = paste0(matrixName, "/", chrz), binarize = FALSE,
+                  addColSums = TRUE, addRowSums = TRUE, addRowVarsLog2 = TRUE,
+                  logFile = logFile)
+                rm(matz)
+                if (z%%3 == 0 | z == length(allChr)) {
+                  gc()
+                }
+            }
+            0
+        }, threads = threads)
+        o <- suppressWarnings(file.remove(integrationFiles))
+    }
+      ArchRProj <- addCellColData(ArchRProj = ArchRProj, cells = dfAll$cellNames,
+        data = dfAll$predictedCell, name = nameCell, force = TRUE)
+    ArchRProj <- addCellColData(ArchRProj = ArchRProj, cells = dfAll$cellNames,
+        data = dfAll$predictedGroup, name = nameGroup, force = TRUE)
+    ArchRProj <- addCellColData(ArchRProj = ArchRProj, cells = dfAll$cellNames,
+        data = dfAll$predictionScore, name = nameScore, force = TRUE)
+     return(ArchRProj)
+}

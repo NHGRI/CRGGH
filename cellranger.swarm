@@ -1,0 +1,156 @@
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-049/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-049_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+				--create-bam=true \
+				--sample=HPAP-049_10xscRNA_97170 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-051/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-051_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-051_10xscRNA_97173 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-056/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-056_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-056_10xscRNA_98615 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-059/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-059_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-059_10xscRNA_98618 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-061/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-061_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-061_99868 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-063/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-063_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP063_99870 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-077/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-077_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP077_103411 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-080/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-080_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-080_FGC2430_103413 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-083/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-083_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP083_FGC2354_103416 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-085/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-085_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP085_FGC2354_103417 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-088/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-088_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP088_FGC2332_105150 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-103/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-103_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-103_FGC2430_106841 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
+ulimit -u 10240 -n 16384; \
+SCRNA_PATH=HPAP-108/Islet\ Studies/Islet\ molecular\ phenotyping\ studies/Single-cell\ RNAseq/Upenn_scRNAseq/fastq/; \
+cellranger count --id=HPAP-108_scRNA \
+				--transcriptome=$CELLRANGER_REF/refdata-gex-GRCh38-2020-A \
+				--fastqs="$SCRNA_PATH" \
+                                --create-bam=true \
+				--sample=HPAP-108_FGC2430_109360 \
+				--localcores=$SLURM_CPUS_PER_TASK \
+				--localmem=34 \
+				--jobmode=slurm \
+				--maxjobs=10
+
