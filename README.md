@@ -27,7 +27,6 @@ Conclusions: Our study identified two epigenetic markers as likely causal for T2
 
 
 
-Come visit us at [CRGGH](https://www.genome.gov/about-nhgri/Center-for-Research-on-Genomics-and-Global-Health)!
 
 
 ## Structure <br>
@@ -93,3 +92,9 @@ Center for Research on Genomics and Global Health
 National Human Genome Research Institute
 National Institute of Health
 E-mail: karlijn.meeks@nih.gov
+
+
+
+
+
+Come visit us at [CRGGH](https://www.genome.gov/about-nhgri/Center-for-Research-on-Genomics-and-Global-Health)!
