@@ -3,8 +3,17 @@
 # Causal relationship between epigenetic markers and type 2 diabetes in West Africans: A Mendelian randomisation analysis
 
 ##### Authors:
-###### Karlijn A.C. Meeks, Eva L. van der Linden, Amy R. Bentley, Ayo P. Doumatey, Peter Henneman, Nora Franceschini, Themistocles L. Assimes, Felix P. Chilunga, Charles F. Hayfron-Benjamin, Ellis Owusu-Dabo, Guanjie Chen, Charles Agyemang, Adebowale A. Adeyemo, Charles N. Rotimi<br>
-###### Center for Research on Genomics and Global Health, National Human Genome Research Institute, National Institutes of Health, Bethesda, MD, 20892, USA
+###### Karlijn A.C. Meeks(1,2,3,4), Eva L. van der Linden(4), Amy R. Bentley(1), Ayo P. Doumatey(1), Peter Henneman(5), Nora Franceschini(6), Themistocles L. Assimes(7,8), Felix P. Chilunga(4), Charles F. Hayfron-Benjamin(4,9), Ellis Owusu-Dabo(10), Guanjie Chen(1), Charles Agyemang(4), Adebowale A. Adeyemo(1), Charles N. Rotimi(1)<br>
+###### 1. Center for Research on Genomics and Global Health, National Human Genome Research Institute, National Institutes of Health, Bethesda, MD, 20892, USA
+###### 2. Division of Endocrinology, Diabetes and Nutrition, Department of Medicine, University of Maryland School of Medicine, Baltimore, MD, USA
+###### 3. Department of Epidemiology and Public Health, University of Maryland School of Medicine, Baltimore, MD, USA
+###### 4. Department of Public and Occupational Health, Amsterdam UMC, University of Amsterdam, Amsterdam Public Health Research Institute, Amsterdam, The Netherlands
+###### 5. Department of Human Genetics, Epigenetics, Reproduction & Development, Amsterdam UMC, University of Amsterdam, Amsterdam, The Netherlands
+###### 6. Departments of Epidemiology and Genetics, University of North Carolina, Chapel Hill, NC, USA
+###### 7.	Department of Medicine, Stanford University School of Medicine, Stanford, CA, USA
+###### 8.	VA Palo Alto Healthcare System, Palo Alto, CA, USA
+###### 9.	Department of Physiology, University of Ghana Medical School, Accra, Ghana
+###### 10.	Department of Global and International Health, School of Public Health, Kwame Nkrumah University of Science and Technology, Kumasi, Ghana
 
 ## Abstract <br>
 Aims: Evidence for a causal role of DNA methylation sites (CpGs) in type 2 diabetes (T2D) and glycaemic traits is limited due to the cross-sectional nature of many epigenome-wide association studies (EWAS). In addition, epigenetic studies in West African populations are particularly sparse despite the high and rising burden of T2D in these populations. Hence, we aimed to identify CpGs causally associated with T2D among West Africans by leveraging Mendelian randomisation (MR) analysis and longitudinal data. 
@@ -70,7 +79,7 @@ Scripts in `3_Posthoc/` include:
 
 For any questions, please contact:
 
-**Karlijn A.C. Meeks**
+**Karlijn A.C. Meeks** <br>
 Assistant Professor
 Division of Endocrinology, Diabetes and Nutrition
 University of Maryland School of Medicine
