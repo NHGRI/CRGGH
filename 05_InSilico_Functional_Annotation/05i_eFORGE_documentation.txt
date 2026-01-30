@@ -1,0 +1,39 @@
+# Adiponectin EWAS
+# Chromatin State and Regulatory Feature Enrichment (eFORGE)
+# Muhulo Muhau Mungamba
+
+## Overview
+eFORGE was used to assess whether adiponectin-associated CpG sites are enriched
+for regulatory genomic features, providing insight into functional relevance.
+
+## Tool
+eFORGE v2.0  
+https://eforge.altiusinstitute.org
+
+## Input Data
+CpG sites derived from the EWAS meta-analysis were used as input, applying
+two significance thresholds:
+- FDR < 0.2
+- FDR < 0.4
+
+## Reference Datasets
+Enrichment was evaluated using datasets from:
+- Roadmap Epigenomics Project
+- ENCODE Project
+
+Regulatory features assessed included:
+- DNase I hypersensitivity sites (DHS)
+- Chromatin states (15-state model)
+- Histone modifications (H3K4me1, H3K4me3, H3K27ac)
+
+## Statistical Evaluation
+Permutation-based testing was used by eFORGE.
+Enrichment was considered statistically significant at FDR < 0.05.
+
+## Implementation Note
+This analysis was performed via the eFORGE web interface.
+No R scripts were generated.
+
+## Integration in Manuscript
+Results are summarized in the in-silico functional annotation section
+and reported in the supplementary material.

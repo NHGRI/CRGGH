@@ -1,0 +1,65 @@
+# Epigenome-Wide Association Study of Adiponectin in West Africans
+
+## Overview
+
+This repository contains analysis scripts supporting the manuscript:
+
+**“Epigenome-Wide Association Study of Adiponectin in West Africans”**  
+submitted to *eBioMedicine*.
+
+The study investigates DNA methylation patterns associated with circulating adiponectin levels in two West African populations:
+- **RODAM-Pros** (Ghanaians)
+- **AADM** (Nigerians)
+
+Using cohort-specific EWAS, stratified analyses by type 2 diabetes (T2D) status, and fixed-effects meta-analysis, the study identifies novel adiponectin-associated CpG sites and regions, followed by functional in-silico validation and extensive sensitivity analyses.
+
+## Repository Structure
+
+├── 01_RODAM/ # RODAM cohort EWAS (full pipeline)
+├── 02_AADM/ # AADM cohort EWAS documentation
+├── 03_MetaAnalysis/ # METAL meta-analyses + QC plots
+├── 04_DMR_Analysis/ # Region-level analyses (bumphunter, DMRff)
+├── 05_InSilico_Analysis/ # Functional annotation & enrichment
+├── 06_Sensitivity_Analysis/ # Robustness & reviewer-requested analyses
+└── README.txt # This file
+
+
+Each folder contains its own README describing:
+- the scientific question addressed  
+- methods used  
+- outputs generated  
+- corresponding manuscript sections  
+
+## Key Analyses
+
+- **EWAS** using limma and minfi (M-values for inference, beta-values for visualization)
+- **Stratification by T2D status** to minimize confounding
+- **Meta-analysis** using METAL (fixed-effects, inverse-variance weighting)
+- **Region-level analyses** (bumphunter and DMRff)
+- **In-silico functional validation**:
+  - eQTM analysis
+  - Pathway enrichment (missMethyl, clusterProfiler)
+  - Regulatory enrichment (eFORGE)
+- **Sensitivity analyses**:
+  - Geographic site-specific variation
+  - Between-cohort heterogeneity
+  - Model collinearity (BMI and covariates)
+
+## Reproducibility Notes
+
+- Analyses were performed in R (versions specified within scripts).
+- Meta-analyses were run using METAL on Linux.
+- File paths reflect the original computing environment and may require adaptation.
+- No individual-level genotype or methylation data are included.
+
+## Authorship & Collaboration
+
+- **Lead analysts: Muhulo Muhau Mungamba (RODAM EWAS) and Karlijn Meeks (AADM EWAS)
+
+Downstream analyses and meta-analyses are fully reproducible using the provided scripts and summary statistics.
+
+## Journal
+
+This repository accompanies a manuscript submitted to **eBioMedicine** and was prepared in response to editorial and reviewer requests for transparency and reproducibility.
+
+#################################################################################################################################################################################################################

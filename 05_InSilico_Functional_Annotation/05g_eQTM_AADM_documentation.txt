@@ -1,0 +1,47 @@
+# Adiponectin EWAS 
+#eQTM Analysis with AADM Cohort available RNA data
+# Muhulo Muhau Mungamba
+
+## Overview
+Expression quantitative trait methylation (eQTM) analyses were conducted to
+investigate the relationship between DNA methylation at adiponectin-associated
+CpG sites and gene expression levels across multiple tissues.
+
+## Data Source
+eQTM analyses were performed using a subset of the AADM cohort for which
+gene expression data were available. Expression data included:
+- Whole blood
+- Subcutaneous adipose tissue (SAT)
+- Skeletal muscle tissue
+
+## Methodology
+eQTM analyses were performed using the Matrix eQTL framework, which enables
+efficient identification of associations between DNA methylation (M values)
+and gene expression.
+
+Analyses included:
+- cis-eQTMs (CpG–gene pairs within close genomic proximity)
+- trans-eQTMs (CpG–gene pairs at distant loci)
+
+## Model Adjustment
+All models were adjusted for:
+- Age
+- Sex
+- Type 2 diabetes medication use
+
+Covariates were selected to harmonize analyses across tissue types and to
+control for key demographic and clinical confounders.
+
+## Statistical Significance
+False discovery rate (FDR) correction was applied, and associations with
+FDR < 0.05 were considered statistically significant.
+
+## Implementation Note
+The eQTM analyses were conducted by a collaborating analyst (Karlijn Meeks).
+R scripts for these analyses are therefore not included in this repository.
+Results are reported in the manuscript and supplementary materials.
+
+## Integration in Manuscript
+eQTM results are described under:
+“In-silico functional annotation to assess biological relevance”
+and referenced in the Results and Discussion sections.

@@ -1,0 +1,35 @@
+# Adiponectin EWAS
+# Public eQTM Validation Using iMETHYL
+#Muhulo Muhau Mungamba
+
+## Overview
+To further assess the biological relevance of adiponectin-associated CpG sites,
+publicly available methylation–expression associations were queried using the
+iMETHYL database.
+
+## Database Description
+iMETHYL (http://imethyl.iwate-megabank.org) provides paired whole-genome DNA
+methylation and transcriptome data from approximately 100 healthy individuals.
+
+Cell types included:
+- CD4+ T lymphocytes
+- Monocytes
+- Neutrophils
+
+## Analysis Approach
+Top CpG sites identified in the EWAS meta-analysis were queried individually
+in the iMETHYL web interface to assess:
+- Direction and strength of methylation–expression correlations
+- Consistency across immune cell types
+
+## Statistical Thresholds
+Significance thresholds and correction methods were applied as implemented
+by the iMETHYL platform.
+
+## Implementation Note
+This analysis was conducted using a web-based interface.
+No R scripts were generated for this step.
+
+## Integration in Manuscript
+Findings from iMETHYL are reported as supportive evidence in the
+“In-silico functional annotation” section.
